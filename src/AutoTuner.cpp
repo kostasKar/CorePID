@@ -111,7 +111,7 @@ void AutoTuner::analyzeMeasurements(){
 	Serial.print(F("Average Amplitude: ")); Serial.println(averageAmplitude);
 	
 	Pu = averagePeriod / 1000000; //in sec
-	Ku = (4.0 * outputStep) / (M_PI * sqrt(square(averageAmplitude) - square(hysteresis)));
+	Ku = (4.0 * outputStep) / (M_PI * sqrt(pow(averageAmplitude, 2) - pow(hysteresis, 2)));
 		
 	Serial.print(F("Ultimate Gain Ku: ")); Serial.println(Ku);
 	Serial.print(F("Ultimate period Pu (sec): ")); Serial.println(Pu);  
